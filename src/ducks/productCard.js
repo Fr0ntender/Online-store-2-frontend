@@ -34,6 +34,9 @@ export const [
     SORT_CARD_DATA_FAIL,
 ] = prefixRequestAction('SORT_CARD_DATA')
 
+/*
+    Action to add data to the product card
+*/
 export const addCardData = data => dispath => {
 
     const url = `${apiPrefix}/product/add`
@@ -67,6 +70,9 @@ export const addCardData = data => dispath => {
     }
 }
 
+/*
+    Action update products (run in componentWillMount())
+*/
 export const reloadCardData = () => dispath => {
 
     const url = `${apiPrefix}/product`
@@ -89,6 +95,9 @@ export const reloadCardData = () => dispath => {
         }))
 }
 
+/*
+    Action data changes in the product card
+*/
 export const chengeCardData = (id, data) => dispath => {
 
     const url = `${apiPrefix}/product/change/${id}`
@@ -115,6 +124,9 @@ export const chengeCardData = (id, data) => dispath => {
         }))
 }
 
+/*
+    Action to delete product data
+*/
 export const delateCardData = id => dispath => {
 
     const url = `${apiPrefix}/product/${id}`
@@ -137,6 +149,9 @@ export const delateCardData = id => dispath => {
         }))
 }
 
+/*
+    Action to change the data in the product card
+*/
 export const sortCardData = (state, name) => dispath => {
 
     const url = `${apiPrefix}/product/sort`

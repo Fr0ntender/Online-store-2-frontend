@@ -1,4 +1,4 @@
 {
-    "apiPrefix": "http://localhost:8081",
+    "apiPrefix": "http://13.48.132.68:8081",
     "serverPort": "8081"
 }
