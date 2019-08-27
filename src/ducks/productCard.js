@@ -1,4 +1,5 @@
 import prefixRequestAction from '../helper/prefixRequestAction'
+import { apiPrefix } from '../etc/config.json'
 // import removeProductData from '../helper/removeProductData'
 // import chengeProductData from '../helper/chengeProductData'
 // import sortProductData from '../helper/sortProductData'
@@ -35,7 +36,7 @@ export const [
 
 export const addCardData = data => dispath => {
 
-    const url = 'http://localhost:3001/product/add'
+    const url = `${apiPrefix}/product/add`
 
     dispath({
         type: ADD_CARD_DATA_START
@@ -68,7 +69,7 @@ export const addCardData = data => dispath => {
 
 export const reloadCardData = () => dispath => {
 
-    const url = 'http://localhost:3001/product'
+    const url = `${apiPrefix}/product`
 
     dispath({
         type: RELOAD_CARD_DATA_START
@@ -90,7 +91,7 @@ export const reloadCardData = () => dispath => {
 
 export const chengeCardData = (id, data) => dispath => {
 
-    const url = `http://localhost:3001/product/change/${id}`
+    const url = `${apiPrefix}/product/change/${id}`
 
     dispath({
         type: CHENGE_CARD_DATA_START
@@ -116,7 +117,7 @@ export const chengeCardData = (id, data) => dispath => {
 
 export const delateCardData = id => dispath => {
 
-    const url = `http://localhost:3001/product/${id}`
+    const url = `${apiPrefix}/product/${id}`
 
     dispath({
         type: DELATE_CARD_DATA_START
@@ -138,7 +139,7 @@ export const delateCardData = id => dispath => {
 
 export const sortCardData = (state, name) => dispath => {
 
-    const url = 'http://localhost:3001/product/sort'
+    const url = `${apiPrefix}/product/sort`
 
     dispath({
         type: SORT_CARD_DATA_START
