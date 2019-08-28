@@ -45,7 +45,7 @@ const apiPrefix = process.env.NODE_ENV === 'development' ? `${devUrl}:${devPort}
 */
 export const addCardData = data => dispath => {
 
-    const url = `${apiPrefix}/product/add`
+    const url = `${apiPrefix}/api/product/add`
 
     dispath({
         type: ADD_CARD_DATA_START
@@ -81,7 +81,7 @@ export const addCardData = data => dispath => {
 */
 export const reloadCardData = () => dispath => {
 
-    const url = `${apiPrefix}/product`
+    const url = `${apiPrefix}/api/product`
 
     dispath({
         type: RELOAD_CARD_DATA_START
@@ -106,7 +106,7 @@ export const reloadCardData = () => dispath => {
 */
 export const chengeCardData = (id, data) => dispath => {
 
-    const url = `${apiPrefix}/product/change/${id}`
+    const url = `${apiPrefix}/api/product/change/${id}`
 
     dispath({
         type: CHENGE_CARD_DATA_START
@@ -135,7 +135,7 @@ export const chengeCardData = (id, data) => dispath => {
 */
 export const delateCardData = id => dispath => {
 
-    const url = `${apiPrefix}/product/${id}`
+    const url = `${apiPrefix}/api/product/${id}`
 
     dispath({
         type: DELATE_CARD_DATA_START
@@ -160,7 +160,7 @@ export const delateCardData = id => dispath => {
 */
 export const sortCardData = (state, name) => dispath => {
 
-    const url = `${apiPrefix}/product/sort`
+    const url = `${apiPrefix}/api/product/sort`
 
     dispath({
         type: SORT_CARD_DATA_START
