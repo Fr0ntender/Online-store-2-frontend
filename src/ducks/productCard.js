@@ -1,5 +1,9 @@
 import prefixRequestAction from '../helper/prefixRequestAction'
-import { apiPrefix } from '../etc/config.json'
+import { 
+    prodUrl,
+    devUrl,
+    devPort
+} from '../etc/config.json'
 // import removeProductData from '../helper/removeProductData'
 // import chengeProductData from '../helper/chengeProductData'
 // import sortProductData from '../helper/sortProductData'
@@ -34,6 +38,8 @@ export const [
     SORT_CARD_DATA_FAIL,
 ] = prefixRequestAction('SORT_CARD_DATA')
 
+const apiPrefix = process.env.NODE_ENV === 'development' ? `${devUrl}:${devPort}`
+: prodUrl
 /*
     Action to add data to the product card
 */

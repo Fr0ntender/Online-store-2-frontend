@@ -1,4 +1,5 @@
 {
-    "apiPrefix": "http://13.48.132.68:8081",
-    "serverPort": "8081"
-}
+    "prodUrl": "http://api.frost0x.ru",
+    "devUrl": "http://localhost",
+    "devPort": "8081"
+}   
