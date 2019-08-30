@@ -7,7 +7,7 @@ The application is designed to demonstrate the code.
 To create the visual part I used: React / Redux / Styled Components.
 To deploy the application I using AWS / Ubuntu / Docker-Compose 
 
-The application is available at http://frost0x.ru
+The application is available at frost0x.ru
 
 ### Runs the app in the development mode. 
 
