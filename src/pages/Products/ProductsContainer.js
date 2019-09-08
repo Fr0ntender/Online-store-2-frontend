@@ -7,6 +7,7 @@ import { logout } from '../../ducks/authorization'
 import {
     reloadCardData,
     delateCardData,
+    findCardData,
     sortCardData
 } from '../../ducks/productCard'
 
@@ -19,6 +20,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
     logout,
+    findCardData,
     sortCardData,
     reloadCardData,
     delateCardData,
@@ -29,6 +31,7 @@ const props = ({
     history,
     cardData,
     authorized,
+    findCardData,
     sortCardData,
     reloadCardData,
     delateCardData,
@@ -40,6 +43,10 @@ const props = ({
     reloadCardData,
     logout: () => {
         logout()
+    },
+    findCardData: async name => {
+        await findCardData(name)
+        reloadCardData()
     },
     delateData: async id => {
         await delateCardData(id)

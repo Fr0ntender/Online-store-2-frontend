@@ -32,14 +32,21 @@ const Home = ({
     modals,
     cardData,
     showModal,
-    authorized
+    authorized,
+    findCardData,
+    reloadCardData
 }) => {
     return (
         <div>
             <Container>
                 <Row>
                     <Col>
-                        <Navbar authorized={authorized} showModal={showModal}/>
+                        <Navbar 
+                            desc={false}
+                            authorized={authorized}
+                            showModal={showModal}
+                            findCardData={findCardData}
+                            reloadCardData={reloadCardData}/>
                     </Col>
                 </Row>
                 <Row mt="30">

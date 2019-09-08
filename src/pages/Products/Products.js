@@ -16,14 +16,20 @@ const Products = ({
     cardData,
     authorized,
     delateData,
+    findCardData,
     searchActive,
+    reloadCardData
  }) => {
     return (
         <Container>
             <Row>
                 <Col>
-                    <Navbar logout={logout} 
+                    <Navbar 
+                        desc={false}
+                        logout={logout} 
                         authorized={authorized}
+                        findCardData={findCardData}
+                        reloadCardData={reloadCardData}
                      />
                 </Col>
             </Row>

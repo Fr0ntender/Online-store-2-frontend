@@ -1,12 +1,9 @@
 import prefixRequestAction from '../helper/prefixRequestAction'
-import { 
+import {
     prodUrl,
     devUrl,
     devPort
 } from '../etc/config.json'
-// import removeProductData from '../helper/removeProductData'
-// import chengeProductData from '../helper/chengeProductData'
-// import sortProductData from '../helper/sortProductData'
 
 export const [
     ADD_CARD_DATA_START,
@@ -38,8 +35,14 @@ export const [
     SORT_CARD_DATA_FAIL,
 ] = prefixRequestAction('SORT_CARD_DATA')
 
+export const [
+    FIND_CARD_DATA_START,
+    FIND_CARD_DATA_SUCCESS,
+    FIND_CARD_DATA_FAIL,
+] = prefixRequestAction('FIND_CARD_DATA')
+
 const apiPrefix = process.env.NODE_ENV === 'development' ? `${devUrl}:${devPort}`
-: prodUrl
+    : prodUrl
 /*
     Action to add data to the product card
 */
@@ -131,6 +134,37 @@ export const chengeCardData = (id, data) => dispath => {
 }
 
 /*
+    Action data find in the product card
+*/
+export const findCardData = data => dispath => {
+
+    const url = `${apiPrefix}/api/product/find`
+
+    dispath({
+        type: FIND_CARD_DATA_START
+    })
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then(res => res.json())
+        .then(data => {
+            dispath({
+                type: FIND_CARD_DATA_SUCCESS,
+                payload: data
+            })
+        })
+        .catch(error => dispath({
+            type: FIND_CARD_DATA_FAIL,
+            payload: `Change fetching error - ${error}`
+        }))
+}
+
+/*
     Action to delete product data
 */
 export const delateCardData = id => dispath => {
@@ -171,7 +205,7 @@ export const sortCardData = (state, name) => dispath => {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({state, name})
+        body: JSON.stringify({ state, name })
     })
         .then(res => res.json())
         .then(data => {
@@ -238,6 +272,23 @@ export default function (state = {
                 fetching: false,
             }
         case CHENGE_CARD_DATA_FAIL:
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload
+            }
+        case FIND_CARD_DATA_START:
+            return {
+                ...state,
+                fetching: true
+            }
+        case FIND_CARD_DATA_SUCCESS:
+            return {
+                ...state,
+                fetching: false,
+                cardData: action.payload
+            }
+        case FIND_CARD_DATA_FAIL:
             return {
                 ...state,
                 fetching: false,

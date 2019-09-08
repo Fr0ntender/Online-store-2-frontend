@@ -4,7 +4,7 @@ import { compose, withProps, lifecycle } from 'recompose'
 import { withRouter } from 'react-router-dom'
 
 import { triggerModal } from '../../ducks/modals'
-import { addCardData, reloadCardData } from '../../ducks/productCard'
+import { addCardData, reloadCardData, findCardData } from '../../ducks/productCard'
 
 import Home from './Home';
 
@@ -17,6 +17,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => bindActionCreators({
     reloadCardData,
     triggerModal,
+    findCardData,
     addCardData
 }, dispatch)
 
@@ -25,6 +26,7 @@ export const props = ({
     cardData,
     authorized,
     addCardData,
+    findCardData,
     triggerModal,
     reloadCardData,
   }) => ({
@@ -33,6 +35,9 @@ export const props = ({
     authorized,
     addCardData,
     reloadCardData,
+    findCardData: async name => {
+        await findCardData(name)
+    },
     showModal: () => {
         triggerModal({
             name: 'adminIsOpen',

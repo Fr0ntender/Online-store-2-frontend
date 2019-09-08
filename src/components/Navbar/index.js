@@ -2,22 +2,12 @@ import React from 'react'
 import ReactSVG from 'react-svg'
 import { Link } from 'react-router-dom'
 
+import Search from '../../components/Search'
 import LoginSrc from '../../assets/login.svg'
 import ExitSrc from '../../assets/exit.svg'
 import Logo from '../../assets/logo.svg'
-// import BooksSrc from '../../assets/books.svg'
+import BooksSrc from '../../assets/books.svg'
 // import TrashSrc from '../../assets/trash.svg'
-
-// import {
-//     Nav,
-//     Logotype,
-//     Search,
-//     SearchInput,
-//     SearchButtonWrap,
-//     SearchButtonWrapContent,
-//     Icons,
-//     IconText
-// } from './Navbar.style'
 
 import {
     Nav,
@@ -29,9 +19,12 @@ import {
 } from './Navbar.style'
 
 const Navbar = ({
+    desc,
     logout,
     showModal,
     authorized,
+    findCardData,
+    reloadCardData
 }) => {
     return (
         <Nav>
@@ -41,12 +34,15 @@ const Navbar = ({
                     <LogosDesc>React</LogosDesc>
                 </Logos>
             </Link>
-            {/* <Search>
-                <SearchInput />
-            </Search>
-            <SearchButtonWrap>
-                <SearchButtonWrapContent></SearchButtonWrapContent>
-            </SearchButtonWrap> */}
+            { !desc && <Search 
+                findCardData={findCardData}
+                reloadCardData={reloadCardData}/> }
+            { !desc && <Link to="/description">
+                <Icons types="book">
+                    <ReactSVG src={BooksSrc} />
+                    <IconText>О проекте</IconText>
+                </Icons>
+            </Link>}
             {
                 authorized
                     ?
@@ -54,27 +50,24 @@ const Navbar = ({
                         !logout
                             ?
                             <Link to="/admin/products">
-                                <Icons enter={true} >
+                                <Icons types="Login" >
                                     <ReactSVG src={LoginSrc}/>
                                     <IconText>Войти</IconText>
                                 </Icons>
                             </Link>
                             :
-                            <Icons onClick={logout}>
+                            <Icons onClick={logout} types="Logoff">
                                 <ReactSVG src={ExitSrc} />
                                 <IconText>Выйти</IconText>
                             </Icons>
                     )
                     :
-                    <Icons onClick={showModal} enter={true} >
+                    <Icons onClick={showModal} types="Login" >
                         <ReactSVG src={LoginSrc} />
                         <IconText>Войти</IconText>
                     </Icons>
             }
-            {/* <Icons>
-                <ReactSVG src={BooksSrc} />
-                <IconText>Книги</IconText>
-            </Icons>
+            {/* 
             <Icons>
                 <ReactSVG src={TrashSrc} />
                 <IconText>Корзина</IconText>
