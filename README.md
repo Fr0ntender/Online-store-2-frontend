@@ -1,5 +1,5 @@
 # The online store - Phase 2 - client.  
-This is the second demo application, which is a micro part of the functionality of the online store with a simplified admin control panel. To login to the admin panel, use "test" as your login and password. 
+This is the second demo application, which is a micro part of the functionality of the online store with a simplified admin control panel. To login to the admin panel, use "test" as your login and password.  
 It differs from the first version in that the data is stored in MongoDB.
 
 In development used:  
