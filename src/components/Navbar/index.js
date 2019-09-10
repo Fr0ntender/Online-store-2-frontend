@@ -44,7 +44,7 @@ const Navbar = ({
                 </Icons>
             </Link>}
             {
-                authorized
+                !desc && (authorized
                     ?
                     (
                         !logout
@@ -65,7 +65,7 @@ const Navbar = ({
                     <Icons onClick={showModal} types="Login" >
                         <ReactSVG src={LoginSrc} />
                         <IconText>Войти</IconText>
-                    </Icons>
+                    </Icons>)
             }
             {/* 
             <Icons>
