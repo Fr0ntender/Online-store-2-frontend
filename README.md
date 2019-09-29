@@ -1,4 +1,4 @@
-# The online store - 1 - client.  
+# The online store - 1 - front.  
 This is a demo application that is a micro - part of the functionality of the online store with a simplified admin control panel. To enter the admin panel, use "test" as your login and password.
 
 In development used:  
