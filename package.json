@@ -1,6 +1,8 @@
 {
   "name": "online-store-2-frontend",
   "version": "0.1.0",
+  "author": "Fr0ntender",
+  "license": "MIT",
   "private": true,
   "dependencies": {
     "core-js": "^3.2.1",
