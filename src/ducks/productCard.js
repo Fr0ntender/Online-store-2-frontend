@@ -1,9 +1,4 @@
 import prefixRequestAction from '../helper/prefixRequestAction'
-import {
-    prodUrl,
-    devUrl,
-    devPort
-} from '../etc/config.json'
 
 export const [
     ADD_CARD_DATA_START,
@@ -41,14 +36,14 @@ export const [
     FIND_CARD_DATA_FAIL,
 ] = prefixRequestAction('FIND_CARD_DATA')
 
-const apiPrefix = process.env.NODE_ENV === 'development' ? `${devUrl}:${devPort}`
-    : prodUrl
+const { REACT_APP_API_URL: API_URL } = process.env
+
 /*
     Action to add data to the product card
 */
 export const addCardData = data => dispath => {
 
-    const url = `${apiPrefix}/api/product/add`
+    const url = `${API_URL}/api/product/add`
 
     dispath({
         type: ADD_CARD_DATA_START
@@ -84,7 +79,7 @@ export const addCardData = data => dispath => {
 */
 export const reloadCardData = () => dispath => {
 
-    const url = `${apiPrefix}/api/product`
+    const url = `${API_URL}/api/product`
 
     dispath({
         type: RELOAD_CARD_DATA_START
@@ -109,7 +104,7 @@ export const reloadCardData = () => dispath => {
 */
 export const chengeCardData = (id, data) => dispath => {
 
-    const url = `${apiPrefix}/api/product/change/${id}`
+    const url = `${API_URL}/api/product/change/${id}`
 
     dispath({
         type: CHENGE_CARD_DATA_START
@@ -138,7 +133,7 @@ export const chengeCardData = (id, data) => dispath => {
 */
 export const findCardData = data => dispath => {
 
-    const url = `${apiPrefix}/api/product/find`
+    const url = `${API_URL}/api/product/find`
 
     dispath({
         type: FIND_CARD_DATA_START
@@ -169,7 +164,7 @@ export const findCardData = data => dispath => {
 */
 export const delateCardData = id => dispath => {
 
-    const url = `${apiPrefix}/api/product/${id}`
+    const url = `${API_URL}/api/product/${id}`
 
     dispath({
         type: DELATE_CARD_DATA_START
@@ -194,7 +189,7 @@ export const delateCardData = id => dispath => {
 */
 export const sortCardData = (state, name) => dispath => {
 
-    const url = `${apiPrefix}/api/product/sort`
+    const url = `${API_URL}/api/product/sort`
 
     dispath({
         type: SORT_CARD_DATA_START
