@@ -1,10 +1,5 @@
 # The online store 2 frontend.  
-To enter the admin panel, use "test" as your login and password.
-
-In development used:  
-Frontend: React / Redux / Styled Components;  
-Beckend: Node / Express / Mongoose / MongoDB;  
-Deployment: AWS ES2 / Ubuntu / Docker-Compose.  
+To enter the admin panel, use "test" as your login and password.  
 
 ## Installing packages and updating dependencies  
 `yarn`  
